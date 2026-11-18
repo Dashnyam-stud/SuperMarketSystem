@@ -60,11 +60,22 @@ public class Applicant {
         return gender;
     }
 
-    void displayApplicant() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Display applicant information
+    public void displayApplicant() {
+        System.out.println("Name: " + getFullName());
+        System.out.println("Gender: " + gender);
+        System.out.println("Email: " + email);
+        System.out.println("Salary: " + salary);
+        System.out.println("Department: " + department);
+        System.out.println("Position: " + position);
+        System.out.println("Job Title: " + jobTitle);
+        System.out.println("Company: " + company);
     }
 
-    String getDesignation() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+// Return job title as manager type
+        // Get employee designation
+    public String getDesignation() {
+        return position;
+    
     }
 }

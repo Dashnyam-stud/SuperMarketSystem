@@ -12,10 +12,10 @@ public class Main {
         system.loadApplicants("Applicants_Form.txt");
 
         // Sort applicants by name
-        system.sortApplicants();
+        system.addEmployeesToTree();
 
         // Add employees to the Binary Search Tree
-        system.addEmployeesToTree();
+        system.sortApplicants();
 
         // Display the main menu
         system.displayMenu();

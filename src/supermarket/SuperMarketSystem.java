@@ -64,7 +64,8 @@ public class SuperMarketSystem {
             System.out.println("3. Display Employees");
             System.out.println("4. Display Tree Height");
             System.out.println("5. Display Total Employees");
-            System.out.println("6. Exit");
+            System.out.println("6. Add New Employee");
+            System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
 
             choice = scanner.nextInt();
@@ -79,7 +80,18 @@ public class SuperMarketSystem {
                 case 2:
                     System.out.print("Enter applicant name: ");
                     String name = scanner.nextLine();
-                    System.out.println("Search feature will be connected.");
+
+                    Applicant foundApplicant
+                            = RecursiveBinarySearch.search(applicants, name);
+
+                    if (foundApplicant != null) {
+                        System.out.println("\nApplicant Found!");
+                        System.out.println("Name: " + foundApplicant.getFullName());
+                        System.out.println("Manager Type: " + foundApplicant.getDesignation());
+                        System.out.println("Department Name: " + foundApplicant.getDepartment());
+                    } else {
+                        System.out.println("Applicant not found.");
+                    }
                     break;
 
                 case 3:
@@ -97,6 +109,10 @@ public class SuperMarketSystem {
                     break;
 
                 case 6:
+                    addNewEmployee();
+                    break;
+
+                case 7:
                     System.out.println("Goodbye!");
                     break;
 
@@ -104,6 +120,11 @@ public class SuperMarketSystem {
                     System.out.println("Invalid choice. Try again.");
             }
 
-        } while (choice != 6);
+        } while (choice != 7);
+    }
+
+    // Add a new employee
+    public void addNewEmployee() {
+        System.out.println("\n===== ADD NEW EMPLOYEE =====");
     }
 }
