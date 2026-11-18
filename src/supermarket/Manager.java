@@ -4,10 +4,10 @@ package supermarket;
 public class Manager {
 
     private String managerName;
-    private String managerType;
+    private ManagerType managerType;
 
     // Constructor
-    public Manager(String managerName, String managerType) {
+    public Manager(String managerName, ManagerType managerType) {
         this.managerName = managerName;
         this.managerType = managerType;
     }
@@ -18,7 +18,7 @@ public class Manager {
     }
 
     // Get manager type
-    public String getManagerType() {
+    public ManagerType getManagerType() {
         return managerType;
     }
 
