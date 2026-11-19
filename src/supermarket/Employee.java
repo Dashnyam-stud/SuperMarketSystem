@@ -4,16 +4,16 @@ package supermarket;
 public class Employee {
 
     private String employeeName;
-    private String designation;
-    private String departmentName;
+    private Manager manager;
+    private Department department;
 
     // Constructor
     public Employee(String employeeName,
-            String designation, String departmentName) {
+            Manager manager, Department department) {
 
         this.employeeName = employeeName;
-        this.designation = designation;
-        this.departmentName = departmentName;
+        this.manager = manager;
+        this.department = department;
     }
 
     // Get employee name
@@ -21,21 +21,31 @@ public class Employee {
         return employeeName;
     }
 
+    // Get manager information
+    public Manager getManager() {
+        return manager;
+    }
+
+    // Get department information
+    public Department getDepartment() {
+        return department;
+    }
+
     // Get designation
     public String getDesignation() {
-        return designation;
+        return manager.getManagerType().toString();
     }
 
     // Get department name
     public String getDepartmentName() {
-        return departmentName;
+        return department.getDepartmentName();
     }
 
     // Display employee information
     public void displayEmployee() {
 
         System.out.println("Employee Name: " + employeeName);
-        System.out.println("Designation: " + designation);
-        System.out.println("Department: " + departmentName);
+        manager.displayManager();
+        department.displayDepartment();
     }
 }

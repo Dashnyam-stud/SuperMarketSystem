@@ -42,14 +42,24 @@ public class SuperMarketSystem {
     }
 
     // Add employees to Binary Tree
+    // Add employees to Binary Tree
     public void addEmployeesToTree() {
-
         for (Applicant applicant : applicants) {
+
+            Manager manager = new Manager(
+                    applicant.getFullName(),
+                    applicant.getDesignation()
+            );
+
+            Department department = new Department(
+                    applicant.getDepartment(),
+                    "Supermarket department"
+            );
 
             Employee employee = new Employee(
                     applicant.getFullName(),
-                    applicant.getDesignation(),
-                    applicant.getDepartment()
+                    manager,
+                    department
             );
 
             employeeTree.insert(employee);
@@ -221,12 +231,22 @@ public class SuperMarketSystem {
         MergeSort.sort(applicants);
 
 // Add the new employee to the Binary Tree
-        Employee newEmployee = new Employee(
+        Manager newManager = new Manager(
                 newApplicant.getFullName(),
-                managerType,
-                departmentName
+                managerType
         );
 
+        Department newDepartment = new Department(
+                departmentName,
+                "Supermarket department"
+        );
+
+// Add the new employee to the Binary Tree
+        Employee newEmployee = new Employee(
+                newApplicant.getFullName(),
+                newManager,
+                newDepartment
+        );
         employeeTree.insert(newEmployee);
 
 // Display the new record
