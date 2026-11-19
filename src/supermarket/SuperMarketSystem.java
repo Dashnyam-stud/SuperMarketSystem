@@ -29,11 +29,16 @@ public class SuperMarketSystem {
         MergeSort.sort(applicants);
     }
 
-    // Display all applicants
+    // Display the first 20 applicants
     public void displayApplicants() {
-        for (Applicant applicant : applicants) {
-            applicant.displayApplicant();
+
+        int limit = Math.min(20, applicants.size());
+
+        for (int i = 0; i < limit; i++) {
+            applicants.get(i).displayApplicant();
         }
+
+        System.out.println("\nDisplayed " + limit + " applicants.");
     }
 
     // Add employees to Binary Tree
@@ -58,15 +63,15 @@ public class SuperMarketSystem {
 
         do {
             System.out.println("\n===== SUPERMARKET SYSTEM =====");
-            System.out.println("1. Display Applicants");
-            System.out.println("2. Search Applicant");
-            System.out.println("3. Display Employees");
-            System.out.println("4. Display Tree Height");
-            System.out.println("5. Display Total Employees");
-            System.out.println("6. Add New Employee");
-            System.out.println("7. Exit");
-            System.out.print("Enter your choice: ");
 
+            MenuOption[] menuOptions = MenuOption.values();
+
+            for (int i = 0; i < menuOptions.length; i++) {
+                System.out.println((i + 1) + ". "
+                        + menuOptions[i].getDescription());
+            }
+
+            System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
 
