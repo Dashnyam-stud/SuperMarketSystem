@@ -195,15 +195,42 @@ public class SuperMarketSystem {
 
         String departmentName = departmentTypes[departmentChoice - 1].toString();
 
+        // Split employee name into first name and last name
+        String[] nameParts = employeeName.trim().split("\\s+", 2);
+
+        String firstName = nameParts[0];
+        String lastName = nameParts.length > 1 ? nameParts[1] : "";
+
+// Create a new applicant record
+        Applicant newApplicant = new Applicant(
+                firstName,
+                lastName,
+                "Not provided",
+                "Not provided",
+                0.0,
+                departmentName,
+                managerType,
+                "Not provided",
+                "Supermarket"
+        );
+
+// Add the new applicant to the list
+        applicants.add(newApplicant);
+
+// Sort the updated list
+        MergeSort.sort(applicants);
+
+// Add the new employee to the Binary Tree
         Employee newEmployee = new Employee(
-                employeeName,
+                newApplicant.getFullName(),
                 managerType,
                 departmentName
         );
 
         employeeTree.insert(newEmployee);
 
+// Display the new record
         System.out.println("\nNew employee added successfully!");
-        newEmployee.displayEmployee();
+        newApplicant.displayApplicant();
     }
 }
