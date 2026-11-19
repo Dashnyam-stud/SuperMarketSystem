@@ -1,4 +1,3 @@
-
 package supermarket;
 
 import java.util.LinkedList;
@@ -48,6 +47,7 @@ public class EmployeeBinaryTree {
                 current = current.right;
 
             } else {
+                current.employee = employee;
                 return;
             }
         }

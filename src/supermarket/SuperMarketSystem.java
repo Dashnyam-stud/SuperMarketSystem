@@ -1,4 +1,3 @@
-
 package supermarket;
 
 import java.util.ArrayList;
@@ -125,6 +124,81 @@ public class SuperMarketSystem {
 
     // Add a new employee
     public void addNewEmployee() {
+
         System.out.println("\n===== ADD NEW EMPLOYEE =====");
+
+        System.out.print("Enter employee name: ");
+        String employeeName = scanner.nextLine();
+
+        System.out.println("\nSelect Manager Type:");
+
+        ManagerType[] managerTypes = ManagerType.values();
+
+        for (int i = 0; i < managerTypes.length; i++) {
+            System.out.println((i + 1) + ". " + managerTypes[i]);
+        }
+
+        int managerChoice;
+
+        while (true) {
+
+            System.out.print("Enter Manager Type: ");
+
+            if (scanner.hasNextInt()) {
+                managerChoice = scanner.nextInt();
+                scanner.nextLine();
+
+                if (managerChoice >= 1 && managerChoice <= managerTypes.length) {
+                    break;
+                }
+            } else {
+                scanner.nextLine();
+            }
+
+            System.out.println("Invalid choice. Please try again.");
+        }
+
+        String managerType = managerTypes[managerChoice - 1].toString();
+
+        System.out.println("\nSelect Department:");
+
+        DepartmentType[] departmentTypes = DepartmentType.values();
+
+        for (int i = 0; i < departmentTypes.length; i++) {
+            System.out.println((i + 1) + ". " + departmentTypes[i]);
+        }
+
+        int departmentChoice;
+
+        while (true) {
+
+            System.out.print("Enter Department: ");
+
+            if (scanner.hasNextInt()) {
+                departmentChoice = scanner.nextInt();
+                scanner.nextLine();
+
+                if (departmentChoice >= 1 && departmentChoice <= departmentTypes.length) {
+                    break;
+                }
+            } else {
+                scanner.nextLine();
+            }
+
+            System.out.println("Invalid choice. Please try again.");
+        }
+
+        String departmentName = departmentTypes[departmentChoice - 1].toString();
+
+        Employee newEmployee = new Employee(
+                employeeName,
+                managerType,
+                departmentName
+        );
+
+        employeeTree.insert(newEmployee);
+
+        System.out.println("\nNew employee added successfully!");
+        newEmployee.displayEmployee();
     }
 }
